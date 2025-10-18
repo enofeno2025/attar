@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher's Assistant</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#14b8a6" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Using a common font that supports Arabic */
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,800&family=Tajawal:wght@400;500;700&display=swap');
+      body {
+        font-family: 'Tajawal', sans-serif;
+      }
+      .font-rubik-extrabold-italic {
+        font-family: 'Rubik', sans-serif;
+        font-weight: 800;
+        font-style: italic;
+      }
+    </style>
+    <script>
+      // Prevents FOUC (Flash of Unstyled Content) for dark mode.
+      // This script needs to be in the head, before the body, and before any major scripts.
+      if (localStorage.getItem('theme') === '"dark"' || 
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100 dark:bg-slate-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

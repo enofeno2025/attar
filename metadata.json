@@ -1,0 +1,5 @@
+{
+  "name": "Teacher's Assistant Dashboard المحاولة الاولى للعطار",
+  "description": "A mobile-first dashboard for teachers to manage students, attendance, and communication, inspired by the provided UI. This application provides a clean and intuitive interface for educational management.",
+  "requestFramePermissions": []
+}
